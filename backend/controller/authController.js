@@ -5,6 +5,7 @@ import bcrypt from "bcryptjs"
 export const signUp = async (req, res)=> {
      try{
        const {username, email, password} = req.body
+       
 
        const checkusername = await User.findOne({username})
        if(checkusername) {
@@ -47,7 +48,7 @@ export const login = async (req, res)=> {
 
        const user = await User.findOne({email})
        if(!user) {
-           return res.status(400).json({message:"User not exist"})
+           return res.status(400).json({message:"Username or password is incorrect"})
        }
       
        const isMatched = await bcrypt.compare(password,user.password)
