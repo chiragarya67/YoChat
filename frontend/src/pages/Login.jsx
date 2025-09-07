@@ -2,13 +2,17 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { serverUrl } from '../main'
+import { useDispatch, useSelector } from 'react-redux'
+import { setuserData } from '../redux/userSlice'
+import User from '../../../backend/models/userModel'
 
 const Login = () => {
-   let navigate = useNavigate()
+   let navigate = useNavigate() 
    const [show, setshow] = useState(0)
    const [email, setemail] = useState("")
    const [password, setpassword] = useState("")
    const [Err, setErr] = useState("")
+   let dispatch = useDispatch()
 
    const handleLogin = async(e)=>{
      e.preventDefault()
@@ -17,8 +21,11 @@ const Login = () => {
              email, password
           }, {withCredentials:true})
 
-          console.log(result);
+          dispatch(setuserData(result.data))
           setErr("")
+          setemail("")
+          setpassword("")
+          
 
        } catch (error) {
          console.log(error);
@@ -36,10 +43,10 @@ const Login = () => {
         </div>
 
         <form className='w-full flex justify-center items-center gap-4 flex-col mt-1' onSubmit={handleLogin}>
-          <input type="email" placeholder='email' className='w-[90%] h-[55px] outline-none border-2 border-[#FFE500] px-[20px] py-[10px] bg-white rounded-lg shadow-gray-200 shadow-lg text-gray-700 text-[19px]' onChange={(e)=>setemail(e.target.value)} value={email}/>
+          <input type="email" placeholder='email' className='w-[90%] h-[55px] outline-none border-2 border-[#FFE500] px-[20px] py-[10px] bg-white rounded-lg shadow-gray-200 shadow-lg text-gray-700 text-[19px]' onChange={(e)=>setemail(e.target.value)} value={email} autoComplete='username'/>
         
          <div className='w-[90%] h-[55px]  border-2 border-[#FFE500] rounded-lg shadow-gray-200 shadow-lg overflow-hidden relative'>
-          <input type={`${show?"text":"password"}`} placeholder='Password' className='w-full h-full outline-none px-[20px] py-[10px] bg-white  text-gray-700 text-[19px]' onChange={(e)=>setpassword(e.target.value)} value={password}/>
+          <input type={`${show?"text":"password"}`} placeholder='Password' className='w-full h-full outline-none px-[20px] py-[10px] bg-white  text-gray-700 text-[19px]' onChange={(e)=>setpassword(e.target.value)} value={password} autoComplete="current-password"/>
           <span className='absolute top-[12px] right-[18px] text-[#FFE500] text-[18px] cursor-pointer' onClick={()=>setshow(prev=>!prev) }>{`${show?"hide":"show"}`}</span>
            </div>
 {Err && <p className='text-red-600'>{Err}</p>}

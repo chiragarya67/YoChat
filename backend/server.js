@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser"
 import dotenv from "dotenv"
 dotenv.config()
 import cors from 'cors'
+import userRouter from "./routes/userRoute.js"
 
 const port=process.env.PORT 
 
@@ -16,6 +17,7 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser())
 app.use("/api/auth", authRouter)
+app.use("/api/user", userRouter)
 
 
 app.listen(port, ()=>{
