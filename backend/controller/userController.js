@@ -52,3 +52,21 @@ import User from "../models/userModel.js"
        return res.status(400).json({message: `profile error ${error}`})
    }
  }
+
+ export const search = async(req, res)=>{
+  try {
+    let {query} = req.query
+    if(!query){
+      return res.status(400).json({message: "query required"})
+    }
+      let users = await User.find({
+        $or:[
+             {name:{$regex:query, $options:"i"}},
+             {userName:{$regex:query, $options:"i"}},
+        ]
+      }) 
+       return res.status(200).json(users)
+  } catch (error) {
+     return res.status(400).json({message: `search user error ${error}`})
+  }
+ }

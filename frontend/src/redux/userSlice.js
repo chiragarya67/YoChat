@@ -6,7 +6,10 @@
         userData: null,
         loading : true,
         otherUserData: [],
-        selectedUser: null
+        selectedUser: null,
+        socket : null,
+        onlineUser: null,
+        searchData: null
     },
     reducers:{
         setuserData: (state, action)=>{
@@ -20,10 +23,19 @@
         },
         setSelectedUser: (state, action)=>{
             state.selectedUser = action.payload
+        },
+        setSocket: (state, action)=>{
+            state.socket = action.payload
+        },
+        setonlieUser: (state, action)=>{
+            state.onlineUser = action.payload
+        },
+        setsearchData: (state, action)=>{
+            state.searchData = action.payload
         }
 
     }
  })
 
- export const { setuserData, setloading, setOtherUserData, setSelectedUser} = userSlice.actions
+ export const { setsearchData, setSocket, setonlieUser, setuserData, setloading, setOtherUserData, setSelectedUser} = userSlice.actions
  export default userSlice.reducer

@@ -1,6 +1,8 @@
 import uploadOnCloudinary from "../config/cloudinary.js";
 import Conversation from "../models/conversationModel.js";
 import Message from "../models/messageModel.js";
+import { getReciverSid, io } from "../socket/socket.js";
+
 
 
 export const sendMessage = async (req, res) =>{
@@ -25,11 +27,15 @@ export const sendMessage = async (req, res) =>{
         if(!conversation) {
             conversation = await Conversation.create({
                 participants: [sender, receiver],
-                message: [newMessage._id]
+                messages: [newMessage._id]
             })
         } else {
             conversation.messages.push(newMessage._id)
             conversation.save()
+        }
+        const receiversid = getReciverSid(receiver)
+        if(receiversid){
+            io.to(receiversid).emit("newMessage", newMessage)
         }
 
         return res.status(201).json(newMessage)
@@ -48,7 +54,7 @@ export const getMessages = async (req, res) =>{
             participants: {$all:[sender, receiver]}
         }).populate ("messages")
        if(!conversation) {
-        return res.status(400).json({message:"conversation not found"})
+        return res.status(200).json([])
        }
       
        return res.status(200).json(conversation?.messages)

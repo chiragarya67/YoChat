@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { serverUrl } from '../main'
 import { useDispatch, useSelector } from 'react-redux'
-import { setuserData } from '../redux/userSlice'
+import { setSelectedUser, setuserData } from '../redux/userSlice'
 import User from '../../../backend/models/userModel'
 
 const Login = () => {
@@ -22,6 +22,7 @@ const Login = () => {
           }, {withCredentials:true})
 
           dispatch(setuserData(result.data))
+          dispatch(setSelectedUser(null))
           setErr("")
           setemail("")
           setpassword("")

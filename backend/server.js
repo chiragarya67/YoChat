@@ -7,10 +7,10 @@ dotenv.config()
 import cors from 'cors'
 import userRouter from "./routes/userRoute.js"
 import messageRouter from "./routes/messageRoute.js"
+import { app, server } from "./socket/socket.js"
 
 const port=process.env.PORT 
 
-const app = express()
 app.use(cors({
     origin:"http://localhost:5173",
     credentials: true
@@ -22,7 +22,7 @@ app.use("/api/user", userRouter)
 app.use("/api/message", messageRouter)
 
 
-app.listen(port, ()=>{
+server.listen(port, ()=>{
     connectDb()
     console.log("server running on port 3000")
 })
