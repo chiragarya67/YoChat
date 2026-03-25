@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { serverUrl } from '../main'
 import { useDispatch, useSelector } from 'react-redux'
 import { setSelectedUser, setuserData } from '../redux/userSlice'
-import User from '../../../backend/models/userModel'
+
 
 const Login = () => {
    let navigate = useNavigate() 
