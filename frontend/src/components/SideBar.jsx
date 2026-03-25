@@ -61,7 +61,7 @@ import useOtherUser from '../customHooks/useOtherUser'
       <div className='w-full h-[280px] bg-[#FFE500] rounded-b-[30%] shadow-gray-400 shadow-md flex flex-col justify-center'>
         <h1 className='text-white font-bold text-[25px] ml-2'>Yo-chat!</h1>
 
-        <div className='w-[45px] h-[45px] rounded-full ml-2 bg-[#FFE500] overflow-hidden  shadow-gray-500 shadow-md flex justify-center items-center cursor-pointer mt-1 absolute bottom-[20px] left-[10px]' onClick={handleLogout} >
+        <div className='w-[45px] h-[45px] z-[150] rounded-full ml-2 bg-[#FFE500] overflow-hidden  shadow-gray-500 shadow-md flex justify-center items-center cursor-pointer mt-1 absolute bottom-[20px] left-[10px]' onClick={handleLogout} >
           <BiLogOut className='w-[25px] h-[25px] mr-1 ' />
         </div>
 
