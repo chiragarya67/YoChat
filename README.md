@@ -4,11 +4,14 @@ YoChat is a full-stack real-time chat application built with Node.js, Express, M
 
 ## 🚀 Features
 
-- 🔐 Secure authentication with JWT & cookies
-- 💬 Real-time messaging with socket.io
-- 🧠 MongoDB integration with Mongoose
-- 🎨 Responsive frontend (React or your preferred stack)
-- 🌐 Deployed backend on Render, frontend on Vercel
+- 🔐 Secure authentication with **JWT & cookies**
+- 💬 Real‑time messaging powered by **Socket.io**
+- 🧠 MongoDB integration with **Mongoose**
+- 🎨 Responsive frontend (React)
+- 📸 Image upload support with Multer
+- 🌐 Deployment: **Backend & Frontend both on Render**
+- ⚡ Scalable architecture with modular design
+
 
 ## 📁 Project Structure
 
@@ -26,9 +29,9 @@ YoChat/
 | Backend    | Node.js, Express.js    |
 | Database   | MongoDB, Mongoose      |
 | Auth       | JWT, Cookies           |
-| Frontend   | React (or your stack)  |
+| Frontend   | React                  |
 | Realtime   | Socket.io              |
-| Deployment | Render (backend), Vercel (frontend) |
+| Deployment | Render                 |
 
 ## ⚙️ Setup Instructions
 
@@ -57,8 +60,7 @@ npm start
 
 ### 4. Deployment Notes
 
-- Backend: [Render](https://render.com/)
-- Frontend: [Vercel](https://vercel.com/)
+- Frontend: [Render](https://yochat-chat-with-friend.onrender.com/)
 - Ensure .env files are configured correctly and .gitignore excludes them.
 
 
@@ -71,5 +73,5 @@ npm start
 
 ## 📢 Connect
 
-Made with ❤️ by [Chirag Arya](https://github.com/chiragarya67). Follow my dev journey on [LinkedIn](https://www.linkedin.com/in/chirag-a-79382a302/) and stay tuned for updates!
+Made with ❤️ by [Chirag](https://github.com/chiragarya67). Follow my dev journey on [LinkedIn](https://www.linkedin.com/in/chirag-a-79382a302/) and stay tuned for updates!
 EOF
