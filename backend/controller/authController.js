@@ -31,8 +31,8 @@ export const signUp = async (req, res)=> {
        const token = gentoken(user._id)
        res.cookie("Yochat", token, {
           httpOnly: true,
-          sameSite: "Strict",
-          secure: false
+          sameSite: "none",
+          secure: true
        })
         return res.status(201).json(user)
      }
@@ -59,8 +59,8 @@ export const login = async (req, res)=> {
        const token = gentoken(user._id)
        res.cookie("Yochat", token, {
           httpOnly: true,
-          sameSite: "Strict",
-          secure: false
+           sameSite: "none",
+          secure: true
        })
         return res.status(200).json(user)
      }
