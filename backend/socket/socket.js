@@ -7,7 +7,7 @@ let app = express()
 const server = http.createServer(app)
 const io = new Server(server, {
     cors:{
-        origin:"https://yochat-chat-with-friends-08g4.onrender.com"
+        origin:"https://yochat-chat-with-friend.onrender.com"
     }
 })
  const userSocketMap = {}
