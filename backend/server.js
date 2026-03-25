@@ -12,7 +12,7 @@ import { app, server } from "./socket/socket.js"
 const port=process.env.PORT 
 
 app.use(cors({
-    origin:"https://yochat-chat-with-friends-08g4.onrender.com",
+    origin:"https://yochat-chat-with-friend.onrender.com",
     credentials: true
 }))
 app.use(express.json());
