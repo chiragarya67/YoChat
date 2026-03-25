@@ -5,6 +5,8 @@
     initialState:{
         userData: null,
         loading : true,
+        otherUserData: [],
+        selectedUser: null
     },
     reducers:{
         setuserData: (state, action)=>{
@@ -12,10 +14,16 @@
         },
         setloading: (state, action)=>{
          state.loading = action.payload
+        },
+        setOtherUserData: (state, action)=>{
+            state.otherUserData = action.payload
+        },
+        setSelectedUser: (state, action)=>{
+            state.selectedUser = action.payload
         }
 
     }
  })
 
- export const { setuserData, setloading } = userSlice.actions
+ export const { setuserData, setloading, setOtherUserData, setSelectedUser} = userSlice.actions
  export default userSlice.reducer

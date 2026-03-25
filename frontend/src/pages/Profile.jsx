@@ -40,6 +40,7 @@ const Profile = () => {
       let result = await axios.put(`${serverUrl}/api/user/profile`, formData, {withCredentials:true})
       setSaving(false)
       dispatch(setuserData(result.data))
+      navigate("/")
       
 
     } catch (error) {

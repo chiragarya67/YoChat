@@ -28,7 +28,8 @@ import User from "../models/userModel.js"
       let user= await User.findByIdAndUpdate(req.userId, {
         name,
         image
-      })  
+      }, {new:true})  
+      
       if(!user){
         return res.status(400).json({message: "user not found"})
       }
@@ -36,6 +37,18 @@ import User from "../models/userModel.js"
       return res.status(200).json(user)
 
     } catch (error) {
-         return res.status(400).json(`profile error ${error}`)
+         return res.status(400).json({message: `profile error ${error}`})
     }
+ }
+
+ export const getOtherUser = async (req, res)=>{
+   try {
+    let users = await User.find({
+       _id:{$ne:req.userId}
+     }).select("-password")
+   return res.status(200).json(users)
+   
+ } catch (error) {
+       return res.status(400).json({message: `profile error ${error}`})
+   }
  }

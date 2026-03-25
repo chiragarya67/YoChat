@@ -6,6 +6,7 @@ import dotenv from "dotenv"
 dotenv.config()
 import cors from 'cors'
 import userRouter from "./routes/userRoute.js"
+import messageRouter from "./routes/messageRoute.js"
 
 const port=process.env.PORT 
 
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use(cookieParser())
 app.use("/api/auth", authRouter)
 app.use("/api/user", userRouter)
+app.use("/api/message", messageRouter)
 
 
 app.listen(port, ()=>{
