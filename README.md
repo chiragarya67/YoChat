@@ -74,4 +74,4 @@ npm start
 ## 📢 Connect
 
 Made with ❤️ by [Chirag](https://github.com/chiragarya67). Follow my dev journey on [LinkedIn](https://www.linkedin.com/in/chirag-a-79382a302/) and stay tuned for updates!
-EOF
+
